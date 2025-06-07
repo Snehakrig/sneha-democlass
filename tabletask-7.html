@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Academic Details</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b'); /* background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.95); /* white box with slight transparency */
+      padding: 40px;
+      margin: 50px auto;
+      width: 90%;
+      max-width: 900px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #004d66;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color:#b3b7ba;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 15px;
+      text-align: center;
+      font-size: 1em;
+    }
+
+    th {
+      background-color: #007acc;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f3faff;
+    }
+
+    tr:hover {
+      background-color: #d0ebff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Student Academic Details</h2>
+    <table>
+      <tr>
+        <th rowspan="2">Name</th>
+        <th rowspan="2">Registration No</th>
+        <th colspan="2">CGPA</th>
+      </tr>
+      <tr>
+        <th>6th Sem</th>
+        <th>7th Sem</th>
+      </tr>
+      <tr>
+        <td>Riya Sharma</td>
+        <td>REG001</td>
+        <td>8.2</td>
+        <td>8.4</td>
+      </tr>
+      <tr>
+        <td>Aman Verma</td>
+        <td>REG002</td>
+        <td>7.9</td>
+        <td>8.1</td>
+      </tr>
+      <tr>
+        <td rowspan="2">Sneha Kumari</td>
+        <td rowspan="2">REG003</td>
+        <td>8.5</td>
+        <td>8.6</td>
+      </tr>
+      <tr>
+        <td>8.7</td>
+        <td>8.8</td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>
