@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Webpage Layout</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 50px 0;
+      flex-wrap: wrap;
+    }
+
+    .section {
+      background: white;
+      padding: 20px;
+      width: 150px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+    }
+
+    .section img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section">
+      <img src="https://img.icons8.com/ios-filled/100/home.png" alt="Home Icon" />
+      <h2>Home</h2>
+    </div>
+    <div class="section">
+      <img src="https://img.icons8.com/ios-filled/100/info.png" alt="About Icon" />
+      <h2>About</h2>
+    </div>
+    <div class="section">
+      <img src="https://img.icons8.com/ios-filled/100/picture.png" alt="Gallery Icon" />
+      <h2>Gallery</h2>
+    </div>
+    <div class="section">
+      <img src="https://img.icons8.com/ios-filled/100/phone.png" alt="Contact Icon" />
+      <h2>Contact</h2>
+    </div>
+  </div>
+</body>
+</html>

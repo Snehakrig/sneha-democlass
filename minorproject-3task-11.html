@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sarkari Result Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #000;
+    }
+
+    /* Header */
+    .header {
+      background-color: #800000;
+      color: white;
+      padding: 15px 10px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 16px;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: black;
+      justify-content: center;
+    }
+
+    .navbar a {
+      padding: 10px 20px;
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #444;
+    }
+
+    /* Main Content */
+    .main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .box {
+      background-color: #fff;
+      padding: 15px;
+      border: 2px solid #800000;
+      border-radius: 5px;
+    }
+
+    .box h2 {
+      color: #800000;
+      font-size: 18px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .box ul {
+      list-style-type: none;
+    }
+
+    .box ul li {
+      padding: 5px 0;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .box ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .box ul li a:hover {
+      text-decoration: underline;
+      color: #800000;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #222;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 22px;
+      }
+
+      .navbar a {
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+
+      .box h2 {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>SARKARI RESULT</h1>
+    <p>www.sarkariresult.com</p>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Latest Jobs</a>
+    <a href="#">Results</a>
+    <a href="#">Admit Card</a>
+    <a href="#">Syllabus</a>
+    <a href="#">Answer Key</a>
+    <a href="#">Contact Us</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div class="box">
+      <h2>Latest Updates</h2>
+      <ul>
+        <li><a href="#">UP Police Constable Result 2025</a></li>
+        <li><a href="#">SSC CGL Tier 1 Answer Key</a></li>
+        <li><a href="#">Railway RRB NTPC Result</a></li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Admit Cards</h2>
+      <ul>
+        <li><a href="#">NDA Admit Card 2025</a></li>
+        <li><a href="#">UPTET 2025 Admit Card</a></li>
+        <li><a href="#">CTET July 2025</a></li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Results</h2>
+      <ul>
+        <li><a href="#">Bihar Board 12th Result</a></li>
+        <li><a href="#">UP Board 10th Result</a></li>
+        <li><a href="#">SSC GD Result</a></li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Syllabus</h2>
+      <ul>
+        <li><a href="#">SSC CGL Syllabus</a></li>
+        <li><a href="#">UP Police Syllabus</a></li>
+        <li><a href="#">IBPS PO Syllabus</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Sarkari Result Clone | For Educational Purpose Only
+  </div>
+
+</body>
+</html>
