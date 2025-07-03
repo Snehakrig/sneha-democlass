@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New JavaScript Exercises</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            /* Changed background to include an image */
+            background-image: url('https://placehold.co/1920x1080/E0F7FA/00796B?text=Background'); /* A light blue/teal background image */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-attachment: fixed; /* Keeps the background fixed when scrolling */
+            background-position: center center; /* Centers the background image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+        div {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #fefefe;
+        }
+        h1 {
+            text-align: center;
+            color: #6B46C1; /* Changed H1 color to a shade of purple */
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        h2 {
+            color: #805AD5; /* Changed H2 color to a lighter shade of purple */
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #4a5568;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 12px);
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s ease-in-out;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #3182ce;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .button-group button {
+            flex: 1;
+            margin-top: 0;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e0f2f7;
+            color: #2c5282;
+            border-left: 4px solid #4299e1;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none;
+        }
+        .error-result {
+            background-color: #ffe0e0;
+            color: #cc0000;
+            border-left: 44px solid #cc0000;
+        }
+        .message-box {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-align: center;
+            max-width: 350px;
+            width: 90%;
+            box-sizing: border-box;
+        }
+        .message-box p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #333;
+        }
+        .message-box button {
+            margin-top: 15px;
+            width: auto;
+            padding: 8px 25px;
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        #fontSizeText {
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px dashed #a0aec0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>New JavaScript Exercises Set</h1>
+
+        <div>
+            <h2>1. Basic Information Form</h2>
+            <form id="infoForm">
+                <label for="infoName">Name:</label>
+                <input type="text" id="infoName" placeholder="Your Name" required>
+
+                <label for="infoEmail">Email:</label>
+                <input type="email" id="infoEmail" placeholder="your.email@example.com" required>
+
+                <label for="infoMessage">Message:</label>
+                <textarea id="infoMessage" rows="4" placeholder="Your message here..." required></textarea>
+
+                <button type="button" onclick="submitBasicInfo()">Submit Info</button>
+            </form>
+            <div id="infoDisplayResult" class="result"></div>
+        </div>
+
+        <div>
+            <h2>2. Image Changer</h2>
+            <div class="image-container">
+                <img id="myImage" src="https://placehold.co/400x250/B8F2E6/2D3748?text=Flower" alt="Flower Image">
+            </div>
+            <div class="button-group">
+                <button onclick="changeImage(-1)">Previous Image</button>
+                <button onclick="changeImage(1)">Next Image</button>
+            </div>
+        </div>
+
+        <div>
+            <h2>3. Font Size Changer</h2>
+            <p id="fontSizeText">This is some sample text. Click the buttons below to change its font size.</p>
+            <div class="button-group">
+                <button onclick="changeFontSize(-2)">Decrease Font</button>
+                <button onclick="changeFontSize(2)">Increase Font</button>
+            </div>
+        </div>
+
+        <div>
+            <h2>4. Current Date & Time</h2>
+            <button onclick="displayCurrentDateTime()">Show Date & Time</button>
+            <div id="dateTimeResult" class="result"></div>
+        </div>
+
+        <!-- New Exercise 1: Undefined Variable Exception -->
+        <div>
+            <h2>5. Handle Undefined Variable Exception</h2>
+            <p>Click the button to attempt printing an undeclared variable and see the error handling.</p>
+            <button onclick="handleUndefinedVariable()">Trigger Undefined Variable Error</button>
+            <div id="undefinedVarResult" class="result"></div>
+        </div>
+
+        <!-- New Exercise 2: Divide by Zero Error -->
+        <div>
+            <h2>6. Throw "Divide by Zero" Error</h2>
+            <label for="numerator">Numerator:</label>
+            <input type="number" id="numerator" value="10">
+            <label for="denominator">Denominator:</label>
+            <input type="number" id="denominator" value="0">
+            <button onclick="performDivision()">Perform Division</button>
+            <div id="divisionResult" class="result"></div>
+        </div>
+
+        <!-- New Exercise 3: Array Out of Bounds Error -->
+        <div>
+            <h2>7. Throw "Out of Bounds" Error</h2>
+            <p>Array: [10, 20, 30, 40, 50]</p>
+            <label for="arrayIndex">Enter Index to Access:</label>
+            <input type="number" id="arrayIndex" value="5">
+            <button onclick="accessArrayIndex()">Access Array Index</button>
+            <div id="arrayAccessResult" class="result"></div>
+        </div>
+
+        <!-- New Exercise 4: Exception Handling with Finally -->
+        <div>
+            <h2>8. Exception Handling with Finally</h2>
+            <p>Demonstrates the `finally` block execution regardless of error.</p>
+            <label for="finallyInput">Enter 'error' to trigger an error:</label>
+            <input type="text" id="finallyInput" placeholder="Type 'error' or anything else">
+            <button onclick="demonstrateFinally()">Run Finally Example</button>
+            <div id="finallyResult" class="result"></div>
+        </div>
+
+    </div>
+
+    <div id="simpleMessageBox" class="message-box">
+        <p id="simpleMessageBoxText"></p>
+        <button onclick="hideSimpleMessageBox()">OK</button>
+    </div>
+
+    <script>
+        // Utility function to show a custom message box instead of alert()
+        function showSimpleMessageBox(message) {
+            document.getElementById('simpleMessageBoxText').textContent = message;
+            document.getElementById('simpleMessageBox').style.display = 'block';
+        }
+
+        // Utility function to hide the custom message box
+        function hideSimpleMessageBox() {
+            document.getElementById('simpleMessageBox').style.display = 'none';
+        }
+
+        // Utility function to get the value of an input field by its ID
+        function getInputValue(id) {
+            return document.getElementById(id).value;
+        }
+
+        // Utility function to display results in a designated div
+        function showResult(id, message, isError = false) {
+            const resultElement = document.getElementById(id);
+            resultElement.innerHTML = message;
+            resultElement.style.display = 'block';
+            if (isError) {
+                resultElement.classList.add('error-result');
+            } else {
+                resultElement.classList.remove('error-result');
+            }
+        }
+
+        // Utility function to clear results from a designated div
+        function clearResult(id) {
+            const resultElement = document.getElementById(id);
+            resultElement.textContent = '';
+            resultElement.style.display = 'none';
+            resultElement.classList.remove('error-result'); // Ensure error class is removed
+        }
+
+        // --- Existing JavaScript Functions ---
+
+        let currentImageIndex = 0;
+        const images = [
+            "https://placehold.co/400x250/B8F2E6/2D3748?text=Flower",
+            "https://placehold.co/400x250/FFC9B8/2D3748?text=Animal",
+            "https://placehold.co/400x250/D4A5A5/2D3748?text=Laptop",
+            "https://placehold.co/400x250/A3E4D7/2D3748?text=Nature" // Added one more for variety
+        ];
+
+        function submitBasicInfo() {
+            clearResult('infoDisplayResult');
+            const name = getInputValue('infoName');
+            const email = getInputValue('infoEmail');
+            const message = getInputValue('infoMessage');
+
+            if (!name || !email || !message) {
+                showSimpleMessageBox("Please fill in all fields in the Basic Information Form.");
+                return;
+            }
+
+            const displayMessage = `
+                <strong>Name:</strong> ${name}<br>
+                <strong>Email:</strong> ${email}<br>
+                <strong>Message:</strong> ${message}
+            `;
+            showResult('infoDisplayResult', displayMessage);
+        }
+
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            document.getElementById('myImage').src = images[currentImageIndex];
+        }
+
+        function changeFontSize(change) {
+            const fontSizeTextElement = document.getElementById('fontSizeText');
+            let currentSize = parseFloat(getComputedStyle(fontSizeTextElement).fontSize);
+            let newSize = currentSize + change;
+
+            if (newSize < 10) newSize = 10;
+            if (newSize > 30) newSize = 30;
+
+            fontSizeTextElement.style.fontSize = `${newSize}px`;
+        }
+
+        function displayCurrentDateTime() {
+            clearResult('dateTimeResult');
+            const now = new Date();
+            const options = {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                hour12: true
+            };
+            const dateTimeString = now.toLocaleDateString('en-US', options);
+            showResult('dateTimeResult', `Current Date & Time: ${dateTimeString}`);
+        }
+
+        // --- New JavaScript Exception Handling Functions ---
+
+        /**
+         * Handles the exception caused by trying to print an undeclared variable.
+         * Uses a try...catch block to gracefully handle the ReferenceError.
+         */
+        function handleUndefinedVariable() {
+            clearResult('undefinedVarResult');
+            try {
+                // Attempt to access an undeclared variable, which will throw a ReferenceError
+                // This line is intentionally problematic for demonstration.
+                // eslint-disable-next-line no-undef
+                showResult('undefinedVarResult', "Attempting to access: " + undeclaredVariable);
+            } catch (error) {
+                // Catch the ReferenceError and display a user-friendly message
+                showResult('undefinedVarResult', `Error: ${error.name} - ${error.message}`, true);
+                console.error("Caught error:", error); // Log the actual error for debugging
+            }
+        }
+
+        /**
+         * Performs division and throws a custom error if the denominator is zero.
+         * Demonstrates using the 'throw' statement for specific error conditions.
+         */
+        function performDivision() {
+            clearResult('divisionResult');
+            const numerator = parseFloat(getInputValue('numerator'));
+            const denominator = parseFloat(getInputValue('denominator'));
+
+            try {
+                if (denominator === 0) {
+                    // Throw a custom Error object with a descriptive message
+                    throw new Error("Cannot divide by zero!");
+                }
+                const result = numerator / denominator;
+                showResult('divisionResult', `Result: ${result}`);
+            } catch (error) {
+                // Catch the custom error and display it
+                showResult('divisionResult', `Error: ${error.message}`, true);
+                console.error("Caught error:", error);
+            }
+        }
+
+        /**
+         * Attempts to access an array index and throws a custom error if it's out of bounds.
+         * Illustrates validating input and throwing an error for invalid access.
+         */
+        function accessArrayIndex() {
+            clearResult('arrayAccessResult');
+            const myArray = [10, 20, 30, 40, 50];
+            const index = parseInt(getInputValue('arrayIndex'));
+
+            try {
+                // Check if the provided index is within the array's valid range
+                if (isNaN(index) || index < 0 || index >= myArray.length) {
+                    // Throw a custom error if the index is invalid
+                    throw new Error(`Index ${index} is out of bounds for array of length ${myArray.length}.`);
+                }
+                const value = myArray[index];
+                showResult('arrayAccessResult', `Value at index ${index}: ${value}`);
+            } catch (error) {
+                // Catch the custom error and display it
+                showResult('arrayAccessResult', `Error: ${error.message}`, true);
+                console.error("Caught error:", error);
+            }
+        }
+
+        /**
+         * Demonstrates the use of the finally block in exception handling.
+         * The finally block always executes, regardless of whether an error occurred or was caught.
+         */
+        function demonstrateFinally() {
+            clearResult('finallyResult');
+            const input = getInputValue('finallyInput').toLowerCase();
+            let message = "Operation started.<br>";
+
+            try {
+                if (input === 'error') {
+                    // Intentionally throw an error based on user input
+                    message += "An error will be thrown.<br>";
+                    throw new Error("Simulated error!");
+                } else {
+                    message += "No error occurred.<br>";
+                }
+                showResult('finallyResult', message);
+            } catch (error) {
+                // Catch the error and update the message
+                message += `Caught error: ${error.message}<br>`;
+                showResult('finallyResult', message, true);
+                console.error("Caught error:", error);
+            } finally {
+                // This block will always execute, regardless of try or catch outcome
+                message += "Finally block executed. Clean-up complete.";
+                // Update the result again to show the finally message
+                // We need to re-fetch the element and update its content
+                const resultElement = document.getElementById('finallyResult');
+                resultElement.innerHTML = message;
+                resultElement.style.display = 'block';
+                // If an error was caught, ensure the error styling remains
+                if (resultElement.classList.contains('error-result')) {
+                    // Keep error styling
+                } else {
+                    // Otherwise, ensure it's normal styling
+                    resultElement.classList.remove('error-result');
+                }
+                console.log("Finally block finished.");
+            }
+        }
+    </script>
+</body>
+</html>

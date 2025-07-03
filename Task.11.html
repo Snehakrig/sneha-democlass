@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarkari Result - Replica</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+        }
+        .marquee-container {
+            background-color: #fef08a; /* Tailwind yellow-200 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 0.5rem 1rem; /* py-2 px-4 */
+            margin-bottom: 1.5rem; /* mb-6 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+        }
+        .marquee-text {
+            color: #b45309; /* Tailwind amber-700 */
+            font-weight: 600; /* font-semibold */
+        }
+        .section-header {
+            background-color: #1d4ed8; /* Tailwind blue-700 */
+            color: white;
+            padding: 0.75rem 1rem; /* py-3 px-4 */
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            font-weight: 700; /* font-bold */
+            font-size: 1.125rem; /* text-lg */
+            text-align: center;
+        }
+        .card-list {
+            background-color: white;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+            padding: 1rem; /* p-4 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .card-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .card-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #e5e7eb; /* Tailwind gray-200 */
+        }
+        .card-list li:last-child {
+            border-bottom: none;
+        }
+        .card-list a {
+            color: #2563eb; /* Tailwind blue-600 */
+            text-decoration: none;
+            font-weight: 500; /* font-medium */
+        }
+        .card-list a:hover {
+            text-decoration: underline;
+            color: #1e40af; /* Tailwind blue-700 */
+        }
+        .footer-link {
+            color: #6b7280; /* Tailwind gray-500 */
+            text-decoration: none;
+        }
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Custom styles for the "Sarkari Result" text */
+        .sarkari-result-text {
+            font-size: 2.5rem; /* text-4xl */
+            font-weight: 700; /* font-bold */
+            color: #ef4444; /* Tailwind red-500 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .dot-com-text {
+            font-size: 1.5rem; /* text-2xl */
+            font-weight: 600; /* font-semibold */
+            color: #3b82f6; /* Tailwind blue-500 */
+        }
+
+        /* Responsive adjustments using Tailwind's utility classes */
+        @media (min-width: 640px) { /* sm */
+            .grid-cols-1-sm-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        @media (min-width: 768px) { /* md */
+            .grid-cols-1-md-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        @media (min-width: 1024px) { /* lg */
+            .grid-cols-1-lg-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root" class="min-h-screen flex flex-col items-center">
+        <!-- Header Section -->
+        <header class="w-full bg-white shadow-md py-4 mb-6 rounded-b-lg">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+                <!-- Logo/Title -->
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <h1 class="sarkari-result-text">Sarkari Result<span class="dot-com-text">.com</span></h1>
+                    <p class="text-gray-600 text-sm mt-1">
+                        <span class="font-bold text-green-600">सरकारी रिजल्ट</span> - India's No. 1 Online Information Portal
+                    </p>
+                </div>
+
+                <!-- Navigation -->
+                <nav>
+                    <ul class="flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-6 text-sm font-medium">
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Home</a></li>
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Latest Jobs</a></li>
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Admit Card</a></li>
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Result</a></li>
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Answer Key</a></li>
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Syllabus</a></li>
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Admission</a></li>
+                        <li><a href="#" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="container mx-auto px-4 w-full max-w-6xl">
+            <!-- Marquee Section -->
+            <div class="marquee-container">
+                <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                    <span class="marquee-text">
+                        Latest Updates: SSC GD Constable Result 2024 Declared | UP Board Class 10th, 12th Result 2024 Soon | NEET UG 2024 Application Last Date Extended
+                    </span>
+                </marquee>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Latest Jobs Section -->
+                <section>
+                    <div class="section-header">Latest Jobs</div>
+                    <div class="card-list">
+                        <ul>
+                            <li><a href="#">SSC GD Constable Recruitment 2024 Online Form</a></li>
+                            <li><a href="#">UP Police Constable Recruitment 2024 Online Form</a></li>
+                            <li><a href="#">Railway RRB ALP Recruitment 2024 Online Form</a></li>
+                            <li><a href="#">Bihar BPSC Teacher Recruitment 2024 Online Form</a></li>
+                            <li><a href="#">NTA UGC NET December 2024 Online Form</a></li>
+                            <li><a href="#">UPSSSC PET 2024 Online Form</a></li>
+                            <li><a href="#">Indian Navy Agniveer MR / SSR Online Form</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Admit Card Section -->
+                <section>
+                    <div class="section-header">Admit Card</div>
+                    <div class="card-list">
+                        <ul>
+                            <li><a href="#">SSC GD Constable Admit Card 2024</a></li>
+                            <li><a href="#">UP Police Constable Admit Card 2024</a></li>
+                            <li><a href="#">Railway RRB ALP Admit Card 2024</a></li>
+                            <li><a href="#">Bihar BPSC Teacher Admit Card 2024</a></li>
+                            <li><a href="#">NTA UGC NET Admit Card 2024</a></li>
+                            <li><a href="#">UPSSSC PET Admit Card 2024</a></li>
+                            <li><a href="#">Indian Navy Agniveer Admit Card 2024</a></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Result Section -->
+                <section>
+                    <div class="section-header">Result</div>
+                    <div class="card-list">
+                        <ul>
+                            <li><a href="#">SSC GD Constable Result 2024</a></li>
+                            <li><a href="#">UP Police Constable Result 2024</a></li>
+                            <li><a href="#">Railway RRB ALP Result 2024</a></li>
+                            <li><a href="#">Bihar BPSC Teacher Result 2024</a></li>
+                            <li><a href="#">NTA UGC NET Result 2024</a></li>
+                            <li><a href="#">UPSSSC PET Result 2024</a></li>
+                            <li><a href="#">Indian Navy Agniveer Result 2024</a></li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Top Online Form Section -->
+            <section class="mb-6">
+                <div class="section-header bg-green-700">Top Online Form</div>
+                <div class="card-list">
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4">
+                        <li><a href="#">SSC CPO SI Online Form 2024</a></li>
+                        <li><a href="#">UPSSSC Junior Assistant Online Form 2024</a></li>
+                        <li><a href="#">Allahabad High Court RO / ARO Online Form</a></li>
+                        <li><a href="#">Bihar Police SI Online Form 2024</a></li>
+                        <li><a href="#">Delhi Police Constable Online Form 2024</a></li>
+                        <li><a href="#">UPPSC PCS Online Form 2024</a></li>
+                        <li><a href="#">SSC MTS Online Form 2024</a></li>
+                        <li><a href="#">Railway Group D Online Form 2024</a></li>
+                        <li><a href="#">Bank PO / Clerk Online Form 2024</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Useful Important Links Section -->
+            <section class="mb-6">
+                <div class="section-header bg-purple-700">Useful Important Links</div>
+                <div class="card-list">
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4">
+                        <li><a href="#">Aadhar Card Download</a></li>
+                        <li><a href="#">Pan Card Online Form</a></li>
+                        <li><a href="#">Voter ID Card Online Apply</a></li>
+                        <li><a href="#">Driving License Online Apply</a></li>
+                        <li><a href="#">Passport Online Apply</a></li>
+                        <li><a href="#">Ration Card Online Apply</a></li>
+                        <li><a href="#">Scholarship Online Form</a></li>
+                        <li><a href="#">E Shram Card Online Form</a></li>
+                        <li><a href="#">Ayushman Card Online Apply</a></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="w-full bg-gray-800 text-white py-6 mt-auto rounded-t-lg">
+            <div class="container mx-auto px-4 text-center text-sm">
+                <p>&copy; 2024 Sarkari Result. All Rights Reserved.</p>
+                <div class="mt-2 space-x-4">
+                    <a href="#" class="footer-link">Disclaimer</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms & Conditions</a>
+                </div>
+                <p class="mt-4 text-gray-400">
+                    This website is designed for informational purposes only. We are not affiliated with any government entity.
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
