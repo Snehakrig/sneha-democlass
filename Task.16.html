@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Webpage Fun!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2980b9;
+        }
+        input[type="text"], input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .output-section {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-left: 5px solid #28a745;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        .output-section p {
+            margin: 5px 0;
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #e74c3c;
+            border-radius: 8px;
+        }
+        .font-size-controls {
+            margin-top: 30px;
+            background-color: #f1c40f;
+            padding: 20px;
+            border-radius: 5px;
+            color: #8e44ad;
+        }
+        #textToChange {
+            font-size: 16px; /* Default font size */
+            color: #8e44ad;
+            margin-top: 15px;
+            display: block;
+        }
+        .datetime-section {
+            margin-top: 30px;
+            background-color: #9b59b6;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        #currentDateTime {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to Your Dynamic Webpage!</h1>
+
+        ---
+
+        <h2>1. Basic Information Form</h2>
+        <form id="basicInfoForm">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone">
+
+            <button type="button" onclick="showFormData()">Show Form Data</button>
+        </form>
+
+        <div id="formDataOutput" class="output-section" style="display: none;">
+            <h3>Submitted Information:</h3>
+            <p><strong>Name:</strong> <span id="outputName"></span></p>
+            <p><strong>Email:</strong> <span id="outputEmail"></span></p>
+            <p><strong>Phone:</strong> <span id="outputPhone"></span></p>
+        </div>
+
+        ---
+
+        <h2>2. Image Changer</h2>
+        <div class="image-container">
+            <img id="myImage" src="https://picsum.photos/id/10/300/200" alt="Random Image 1">
+            <p style="margin-top: 15px;">
+                <button onclick="changeImage()">Change Image</button>
+            </p>
+        </div>
+
+        ---
+
+        <h2>3. Font Size Changer</h2>
+        <div class="font-size-controls">
+            <p id="textToChange">This is some sample text. You can change its font size using the buttons below!</p>
+            <button onclick="increaseFontSize()">Increase Font Size</button>
+            <button onclick="decreaseFontSize()">Decrease Font Size</button>
+        </div>
+
+        ---
+
+        <h2>4. Current Date & Time</h2>
+        <div class="datetime-section">
+            <p>Today's Date and Current Time:</p>
+            <div id="currentDateTime"></div>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. JavaScript for Basic Information Form
+        function showFormData() {
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            document.getElementById('outputName').textContent = fullName;
+            document.getElementById('outputEmail').textContent = email;
+            document.getElementById('outputPhone').textContent = phone;
+
+            document.getElementById('formDataOutput').style.display = 'block';
+        }
+
+        // 2. JavaScript for Image Changer
+        // Array of different image URLs from picsum.photos
+        const imageUrls = [
+            'https://picsum.photos/id/10/300/200', // A specific image with ID 10
+            'https://picsum.photos/id/20/300/200',
+            'https://picsum.photos/id/30/300/200',
+            'https://picsum.photos/id/40/300/200',
+            'https://picsum.photos/id/50/300/200',
+            'https://picsum.photos/seed/abc/300/200', // Random image based on a seed
+            'https://picsum.photos/seed/xyz/300/200'
+        ];
+        let currentImageIndex = 0;
+
+        function changeImage() {
+            const myImage = document.getElementById('myImage');
+            
+            // Move to the next image in the array
+            currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+            
+            myImage.src = imageUrls[currentImageIndex];
+            myImage.alt = `Random Image ${currentImageIndex + 1}`; // Update alt text
+        }
+
+        // 3. JavaScript for Font Size Changer
+        function increaseFontSize() {
+            const textElement = document.getElementById('textToChange');
+            let currentSize = parseFloat(window.getComputedStyle(textElement).fontSize);
+            textElement.style.fontSize = (currentSize + 2) + 'px';
+        }
+
+        function decreaseFontSize() {
+            const textElement = document.getElementById('textToChange');
+            let currentSize = parseFloat(window.getComputedStyle(textElement).fontSize);
+            // Prevent font size from becoming too small
+            if (currentSize > 8) {
+                textElement.style.fontSize = (currentSize - 2) + 'px';
+            }
+        }
+
+        // 4. JavaScript for Current Date & Time
+        function updateDateTime() {
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            document.getElementById('currentDateTime').textContent = now.toLocaleDateString('en-US', options);
+        }
+
+        // Call updateDateTime initially and then every second
+        updateDateTime(); // Display immediately
+        setInterval(updateDateTime, 1000); // Update every 1 second
+    </script>
+
+</body>
+</html>
